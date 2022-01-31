@@ -46,7 +46,7 @@ def main():
         while True:
             displayHands(playerHand, dealerHand, False)
             print()
-            # busted, break this loop. get new bet
+            # busted, break this loop. end player turn.
             if getHandValue(playerHand) > 21:
                 break
             # get players move:
@@ -63,7 +63,7 @@ def main():
                 rank, suit = newCard
                 print(f'You drew a {rank} of {suit}')
                 playerHand.append(newCard)
-                # busted. get new bet. Money not returned
+                # busted. 
                 if getHandValue(playerHand) > 21:
                     continue
             # stand or hit, ends players turn
@@ -81,7 +81,9 @@ def main():
                 input('Press enter to continue... ')
                 print('\n\n')
 
+        # display cards of both player and dealer
         displayHands(playerHand, dealerHand, True)
+        # get and compare value of player and dealer cards
         playerValue = getHandValue(playerHand)
         dealerValue = getHandValue(dealerHand)
 
